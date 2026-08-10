@@ -6,7 +6,10 @@ const diagnosticForm = document.querySelector("#rewireDiagnostic");
 const diagnosticResult = document.querySelector("#diagnosticResult");
 const resultTitle = document.querySelector("#resultTitle");
 const resultText = document.querySelector("#resultText");
+const resultScore = document.querySelector("#resultScore");
+const whatsappResultLink = document.querySelector("#whatsappResultLink");
 const diagnosticStatus = document.querySelector("#diagnosticStatus");
+const WHATSAPP_NUMBER = "212662334479";
 
 function interpretationFor(score) {
   if (score <= 6) {
@@ -31,7 +34,7 @@ function interpretationFor(score) {
 
 function showDiagnosticResult(event) {
   event.preventDefault();
-  if (!diagnosticForm || !diagnosticResult || !resultTitle || !resultText || !diagnosticStatus) return;
+  if (!diagnosticForm || !diagnosticResult || !resultTitle || !resultText || !resultScore || !whatsappResultLink || !diagnosticStatus) return;
 
   if (!diagnosticForm.reportValidity()) {
     diagnosticStatus.textContent = "Répondez aux six questions pour afficher votre orientation.";
@@ -41,10 +44,21 @@ function showDiagnosticResult(event) {
   const answers = new FormData(diagnosticForm);
   const score = [...answers.values()].reduce((total, value) => total + Number(value), 0);
   const interpretation = interpretationFor(score);
+  const whatsappMessage = [
+    "Bonjour, je viens de terminer le mini-diagnostic REWIRE.",
+    "",
+    `Mon score indicatif : ${score}/24`,
+    `Mon orientation : ${interpretation.title}`,
+    "",
+    "Je souhaite obtenir plus d’informations sur le programme REWIRE 90."
+  ].join("\n");
 
   resultTitle.textContent = interpretation.title;
+  resultScore.textContent = `Score indicatif : ${score} / 24`;
   resultText.textContent = interpretation.text;
-  diagnosticStatus.textContent = "Votre orientation est prête. Aucune réponse n’a été enregistrée.";
+  whatsappResultLink.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
+  whatsappResultLink.hidden = false;
+  diagnosticStatus.textContent = "Votre orientation est prête. Aucune réponse n’est transmise sans votre action.";
   diagnosticResult.hidden = false;
   diagnosticResult.focus();
 }

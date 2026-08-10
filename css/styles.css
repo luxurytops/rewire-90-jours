@@ -92,6 +92,10 @@ blockquote { margin: 1.75rem 0; padding-left: 1.25rem; color: var(--navy-700); b
 .form-status { min-height: 1.5rem; margin: 0; color: var(--navy-700); font-weight: 700; }
 .diagnostic-result { padding: 1.4rem; background: #fff; border-left: .3rem solid var(--gold-400); border-radius: .6rem; box-shadow: 0 .8rem 2rem rgba(7,20,38,.08); }
 .diagnostic-result h3 { margin-top: 0; }
+.result-score { color: var(--navy-700); font-size: 1.1rem; font-weight: 900; }
+.button.whatsapp { margin-top: .75rem; color: #fff; background: #1f8f55; border-color: #1f8f55; }
+.button.whatsapp[hidden] { display: none; }
+.privacy-note { color: var(--muted); font-size: .8rem; }
 .contact-section { color: #dfe9f4; background: var(--navy-900); text-align: center; }
 .contact-section h2 { margin-inline: auto; color: #fff; }
 .contact-section p:not(.eyebrow) { max-width: 48rem; margin-inline: auto; }
