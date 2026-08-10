@@ -4,7 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Découvrez REWIRE YOUR MIND — 90 JOURS, un parcours structuré pour comprendre ses schémas et faire évoluer progressivement ses actions.">
+  <meta name="theme-color" content="#071b33">
   <title>REWIRE YOUR MIND — 90 JOURS</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon-32.png">
   <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
@@ -48,12 +52,9 @@
     <section class="section method-section" id="methode">
       <div class="container">
         <p class="eyebrow">La méthode REWIRE</p><h2>Quatre mouvements pour construire le changement</h2>
-        <div class="method-grid">
-          <article><b>01</b><h3>Révélation</h3><p>Identifier croyances, peurs, habitudes, réactions et schémas répétitifs.</p></article>
-          <article><b>02</b><h3>Désactivation</h3><p>Créer une rupture consciente avec les anciens automatismes.</p></article>
-          <article><b>03</b><h3>Construction</h3><p>Construire de nouvelles pensées, décisions, habitudes et réponses.</p></article>
-          <article><b>04</b><h3>Installation</h3><p>Répéter les nouveaux comportements pour favoriser des changements plus stables.</p></article>
-        </div>
+        <p class="data-status" id="methodsStatus" role="status" aria-live="polite">Chargement du contenu…</p>
+        <div class="method-grid" id="methodsList" aria-busy="true"></div>
+        <noscript><p class="data-status is-error">Activez JavaScript pour charger les quatre mouvements de la méthode.</p></noscript>
       </div>
     </section>
 
@@ -99,7 +100,7 @@
     </section>
   </main>
 
-  <footer><div class="container"><strong>REWIRE YOUR MIND — 90 JOURS</strong><p>Prototype local V1 · Aucune publication effectuée</p></div></footer>
+  <footer><div class="container"><strong>REWIRE YOUR MIND — 90 JOURS</strong><p>Mini-site V2 dynamique · PWA en cours de validation</p><p class="pwa-status" id="pwaStatus" role="status" aria-live="polite" hidden></p></div></footer>
   <script src="./js/app.js"></script>
 </body>
 </html>

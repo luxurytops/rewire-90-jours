@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "project": "REWIRE YOUR MIND — 90 JOURS",
+  "methods": [
+    {
+      "id": "revelation",
+      "number": "01",
+      "title": "Révélation",
+      "description": "Identifier croyances, peurs, habitudes, réactions et schémas répétitifs."
+    },
+    {
+      "id": "desactivation",
+      "number": "02",
+      "title": "Désactivation",
+      "description": "Créer une rupture consciente avec les anciens automatismes."
+    },
+    {
+      "id": "construction",
+      "number": "03",
+      "title": "Construction",
+      "description": "Construire de nouvelles pensées, décisions, habitudes et réponses."
+    },
+    {
+      "id": "installation",
+      "number": "04",
+      "title": "Installation",
+      "description": "Répéter les nouveaux comportements pour favoriser des changements plus stables."
+    }
+  ]
+}

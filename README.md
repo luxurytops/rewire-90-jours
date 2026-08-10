@@ -1,4 +1,117 @@
-# REWIRE YOUR MIND — 90 JOURS · Mini-site V1
+# REWIRE YOUR MIND — 90 JOURS · PWA
+
+Cette copie est préparée pour être publiée à la racine de `luxurytops/rewire-90-jours` avec GitHub Pages.
+
+## Objectif
+
+Cette V2 conserve le mini-site de la séance 18 et sépare les quatre mouvements de la méthode REWIRE de leur affichage. Les données sont stockées dans `data/data.json`, chargées avec `fetch()` puis rendues dans le DOM avec JavaScript.
+
+La source conservée intacte est `05-web/mini-site-v1/`.
+
+## Différence entre V1 et V2
+
+- V1 : les quatre cartes sont écrites directement dans `index.html`.
+- V2 : `index.html` contient un conteneur et une zone d’état ; `js/app.js` récupère le JSON et construit les cartes.
+- Le mini-diagnostic existant reste local et indépendant du JSON.
+- Aucun manifest ni service worker n’est déclaré dans cette séance.
+
+## Arborescence
+
+```text
+mini-site-v2/
+├── index.html
+├── README.md
+├── css/
+│   └── styles.css
+├── js/
+│   └── app.js
+├── data/
+│   └── data.json
+└── assets/
+    └── images/
+        ├── hero-rewire.webp
+        ├── mohamed-boumrah-about.webp
+        └── mohamed-boumrah-hero.webp
+```
+
+`mohamed-boumrah-hero.webp` a été hérité de la V1 source mais n’est pas référencé par la page.
+
+## Rôle des fichiers
+
+- `index.html` : structure sémantique, conteneur des méthodes et interface accessible des états.
+- `css/styles.css` : présentation responsive et styles Chargement, Succès, Vide et Erreur.
+- `js/app.js` : mini-diagnostic existant, chargement JSON, validation des données et création des cartes.
+- `data/data.json` : quatre mouvements REWIRE sous forme de données structurées.
+- `assets/images/` : images locales héritées de la V1.
+
+## Lancement obligatoire par HTTP
+
+`fetch()` ne doit pas être validé avec une ouverture directe en `file://`, car les politiques de sécurité du navigateur peuvent empêcher ou modifier l’accès au JSON local.
+
+Depuis la racine du projet, utiliser un serveur local disponible, par exemple :
+
+```text
+python -m http.server 8000
+```
+
+Puis ouvrir :
+
+```text
+http://localhost:8000/
+```
+
+Python n’était pas installé dans l’environnement d’exécution utilisé pour la recette. Le contrôle HTTP automatisé a donc employé un serveur TCP PowerShell temporaire sans dépendance.
+
+## Tester les quatre états
+
+- Succès : `http://localhost:8000/`
+- Chargement maintenu : `http://localhost:8000/?data-state=loading`
+- Données vides simulées : `http://localhost:8000/?data-state=empty`
+- Erreur réseau simulée : `http://localhost:8000/?data-state=error`
+
+Les paramètres de test ne modifient pas `data/data.json`. L’URL normale reste toujours l’état nominal.
+
+## Contrôles exécutés
+
+- syntaxe JSON validée avec PowerShell ;
+- quatre objets et quatre champs obligatoires par objet confirmés ;
+- réponses HTTP `200` pour HTML, CSS, JavaScript, JSON et images référencées ;
+- type MIME `application/json; charset=utf-8` confirmé ;
+- réponse `404` confirmée pour le chemin volontairement absent ;
+- absence de chemin absolu, secret, ressource distante et encodage suspect dans les fichiers V2 ;
+- inspection statique de `fetch()`, `response.ok`, validation du tableau, `try/catch` et rendu avec `textContent`.
+
+Edge et Chrome headless sont restés bloqués dans l’environnement. Les quatre états n’ont donc pas été validés visuellement ou fonctionnellement dans un navigateur.
+
+## Tests humains restant à effectuer
+
+- ouvrir les quatre URL ci-dessus dans un navigateur ;
+- contrôler la console pour chaque état ;
+- vérifier les cartes à 320, 390, 768 et 1100 px ;
+- vérifier le clavier, le focus, le zoom à 200 % et l’annonce des statuts ;
+- exécuter le mini-diagnostic complet.
+
+## Préparation PWA
+
+Une future séance pourra ajouter :
+
+- un `manifest.webmanifest` avec nom, nom court, couleurs, URL de départ et mode d’affichage ;
+- des icônes dédiées 192 × 192 et 512 × 512 ;
+- un service worker pour l’application shell ;
+- une stratégie explicite pour la mise à jour de `data/data.json` ;
+- une page ou un message hors connexion.
+
+Le futur cache devra éviter de conserver indéfiniment une ancienne version du JSON. Une stratégie réseau prioritaire avec repli sur cache est à évaluer pour les données, tandis qu’un cache prioritaire peut convenir aux ressources statiques versionnées.
+
+Les service workers nécessitent HTTPS, sauf sur `localhost`, et doivent être testés avant toute déclaration de fonctionnement hors connexion.
+
+## Statut
+
+**PRÊT POUR TEST HUMAIN** — aucune publication effectuée.
+
+---
+
+## Historique de la V1 source
 
 ## Présentation
 
