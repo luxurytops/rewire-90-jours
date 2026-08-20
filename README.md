@@ -71,6 +71,18 @@ Python n’était pas installé dans l’environnement d’exécution utilisé p
 
 Les paramètres de test ne modifient pas `data/data.json`. L’URL normale reste toujours l’état nominal.
 
+## Parcours WhatsApp
+
+- Le résultat du mini-diagnostic peut être envoyé volontairement au contact REWIRE au `+212 662 334 479`.
+- Les boutons « Rejoindre la communauté WhatsApp » orientent vers le groupe REWIRE dans un nouvel onglet.
+- Un formulaire préalable demande le nom complet, le téléphone, le genre et l'objet de changement avant d'afficher le diagnostic.
+- Ces informations restent en mémoire pendant la session et sont ajoutées au message WhatsApp préparé avec le résultat.
+- Aucun profil, message ni résultat n'est stocké ou transmis sans une action explicite de la personne dans WhatsApp.
+
+## Vidéo de présentation
+
+La première section du site intègre une vidéo TikTok de présentation avec le lecteur officiel, sans lecture automatique. Un lien direct vers TikTok est proposé comme solution de secours. Cette ressource externe nécessite une connexion et n'est pas disponible dans le cache hors connexion de la PWA.
+
 ## Contrôles exécutés
 
 - syntaxe JSON validée avec PowerShell ;

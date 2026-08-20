@@ -47,6 +47,13 @@ h3 { color: var(--navy-700); line-height: 1.2; }
 .button.secondary { color: #fff; background: transparent; }
 .button:hover { filter: brightness(1.08); }
 .trust-note { margin-top: 1.25rem; color: #b9c8d9; font-size: .88rem; }
+.presentation-video { padding-block: clamp(2.5rem, 6vw, 5rem); color: #fff; background: var(--navy-950); }
+.video-intro { display: grid; align-items: center; gap: clamp(2rem, 6vw, 5rem); }
+.video-copy h2 { max-width: 14ch; margin: 0 0 1rem; color: #fff; font-size: clamp(2rem, 7vw, 3.5rem); line-height: 1.1; }
+.video-copy > p:not(.eyebrow) { max-width: 42rem; color: #dce7f3; }
+.video-copy .text-link { color: var(--gold-200); }
+.video-frame { width: min(100%, 22rem); margin-inline: auto; overflow: hidden; border: 1px solid rgba(234,212,155,.35); border-radius: var(--radius); background: #000; box-shadow: var(--shadow); aspect-ratio: 9 / 16; }
+.video-frame iframe { display: block; width: 100%; height: 100%; border: 0; }
 .hero-visual { margin: 0; overflow: hidden; border: 1px solid rgba(234,212,155,.25); border-radius: var(--radius); box-shadow: var(--shadow); }
 .hero-visual img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
 
@@ -83,6 +90,17 @@ h3 { color: var(--navy-700); line-height: 1.2; }
 .coach-grid figure img { width: 100%; max-height: 36rem; object-fit: cover; object-position: center 20%; }
 blockquote { margin: 1.75rem 0; padding-left: 1.25rem; color: var(--navy-700); border-left: .25rem solid var(--gold-400); font-size: 1.1rem; font-weight: 700; }
 .diagnostic-section { background: var(--mist); }
+.lead-form { margin-top: 2rem; }
+.lead-form fieldset { margin: 0; padding: clamp(1.25rem, 4vw, 2rem); background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+.lead-form legend { padding-inline: .5rem; color: var(--navy-900); font-size: 1.2rem; font-weight: 900; }
+.lead-fields { display: grid; gap: 1rem; }
+.lead-fields label { display: grid; gap: .35rem; color: var(--navy-900); font-weight: 800; }
+.lead-fields input, .lead-fields select, .lead-fields textarea { width: 100%; min-height: 3rem; padding: .7rem .8rem; color: var(--ink); background: #fff; border: 1px solid #aeb9c7; border-radius: .45rem; font: inherit; }
+.lead-fields textarea { min-height: 7rem; resize: vertical; }
+.consent { display: flex; align-items: flex-start; gap: .65rem; margin-block: 1.25rem; color: var(--muted); font-size: .9rem; }
+.consent input { flex: 0 0 auto; width: 1.15rem; height: 1.15rem; margin-top: .2rem; accent-color: var(--navy-700); }
+#diagnosticPanel { margin-top: 2.5rem; }
+#diagnosticPanel[hidden] { display: none; }
 #rewireDiagnostic { display: grid; gap: 1rem; margin-top: 2rem; }
 #rewireDiagnostic fieldset { min-width: 0; margin: 0; padding: 1.25rem; background: #fff; border: 1px solid var(--line); border-radius: .8rem; }
 #rewireDiagnostic legend { padding-inline: .35rem; color: var(--navy-900); font-weight: 800; }
@@ -112,6 +130,9 @@ footer p { margin-bottom: 0; font-size: .85rem; }
 }
 
 @media (min-width: 48rem) {
+  .video-intro { grid-template-columns: minmax(0, 1fr) minmax(18rem, 25rem); }
+  .lead-fields { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .lead-change { grid-column: 1 / -1; }
   .question-grid, .proof-grid { grid-template-columns: repeat(3, 1fr); }
   .method-grid { grid-template-columns: repeat(2, 1fr); }
   .program-grid, .coach-grid { grid-template-columns: 1fr 1fr; }
