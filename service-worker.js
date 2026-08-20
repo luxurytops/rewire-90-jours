@@ -1,7 +1,7 @@
 "use strict";
 
 const CACHE_PREFIX = "rewire-90-";
-const STATIC_CACHE = `${CACHE_PREFIX}static-v7`;
+const STATIC_CACHE = `${CACHE_PREFIX}static-v8`;
 const DATA_CACHE = `${CACHE_PREFIX}data-v1`;
 
 const APP_SHELL = [
@@ -25,7 +25,7 @@ self.addEventListener("install", (event) => {
     Promise.all([
       caches.open(STATIC_CACHE).then((cache) => cache.addAll(APP_SHELL)),
       caches.open(DATA_CACHE).then((cache) => cache.add("./data/data.json"))
-    ])
+    ]).then(() => self.skipWaiting())
   );
 });
 
