@@ -2,6 +2,9 @@
 
 document.documentElement.dataset.jsReady = "true";
 
+const leadForm = document.querySelector("#leadForm");
+const leadStatus = document.querySelector("#leadStatus");
+const diagnosticPanel = document.querySelector("#diagnosticPanel");
 const diagnosticForm = document.querySelector("#rewireDiagnostic");
 const diagnosticResult = document.querySelector("#diagnosticResult");
 const resultTitle = document.querySelector("#resultTitle");
@@ -10,6 +13,33 @@ const resultScore = document.querySelector("#resultScore");
 const whatsappResultLink = document.querySelector("#whatsappResultLink");
 const diagnosticStatus = document.querySelector("#diagnosticStatus");
 const WHATSAPP_NUMBER = "212662334479";
+let leadProfile = null;
+
+function unlockDiagnostic(event) {
+  event.preventDefault();
+  if (!leadForm || !leadStatus || !diagnosticPanel) return;
+
+  if (!leadForm.reportValidity()) {
+    leadStatus.textContent = "Complétez les champs obligatoires et confirmez votre accord.";
+    return;
+  }
+
+  const leadData = new FormData(leadForm);
+  leadProfile = {
+    fullName: String(leadData.get("fullName") || "").trim(),
+    phone: String(leadData.get("phone") || "").trim(),
+    gender: String(leadData.get("gender") || "").trim(),
+    changeGoal: String(leadData.get("changeGoal") || "").trim()
+  };
+
+  leadStatus.textContent = "Informations complétées. Le mini-diagnostic est maintenant disponible.";
+  diagnosticPanel.hidden = false;
+  diagnosticPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+if (leadForm) {
+  leadForm.addEventListener("submit", unlockDiagnostic);
+}
 
 function interpretationFor(score) {
   if (score <= 6) {
@@ -36,6 +66,12 @@ function showDiagnosticResult(event) {
   event.preventDefault();
   if (!diagnosticForm || !diagnosticResult || !resultTitle || !resultText || !resultScore || !whatsappResultLink || !diagnosticStatus) return;
 
+  if (!leadProfile) {
+    diagnosticStatus.textContent = "Complétez d'abord le formulaire préalable.";
+    leadForm?.scrollIntoView({ behavior: "smooth", block: "start" });
+    return;
+  }
+
   if (!diagnosticForm.reportValidity()) {
     diagnosticStatus.textContent = "Répondez aux six questions pour afficher votre orientation.";
     return;
@@ -46,6 +82,11 @@ function showDiagnosticResult(event) {
   const interpretation = interpretationFor(score);
   const whatsappMessage = [
     "Bonjour, je viens de terminer le mini-diagnostic REWIRE.",
+    "",
+    `Nom et prénom : ${leadProfile.fullName}`,
+    `Téléphone : ${leadProfile.phone}`,
+    `Genre : ${leadProfile.gender}`,
+    `Objet de changement : ${leadProfile.changeGoal}`,
     "",
     `Mon score indicatif : ${score}/24`,
     `Mon orientation : ${interpretation.title}`,
@@ -58,7 +99,7 @@ function showDiagnosticResult(event) {
   resultText.textContent = interpretation.text;
   whatsappResultLink.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
   whatsappResultLink.hidden = false;
-  diagnosticStatus.textContent = "Votre orientation est prête. Aucune réponse n’est transmise sans votre action.";
+  diagnosticStatus.textContent = "Votre orientation est prête. Vos informations ne sont transmises que si vous confirmez l'envoi dans WhatsApp.";
   diagnosticResult.hidden = false;
   diagnosticResult.focus();
 }
