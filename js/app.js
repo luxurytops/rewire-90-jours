@@ -91,7 +91,8 @@ function showDiagnosticResult(event) {
     `Mon score indicatif : ${score}/24`,
     `Mon orientation : ${interpretation.title}`,
     "",
-    "Je souhaite obtenir plus d’informations sur le programme REWIRE 90."
+    "Je souhaite candidater à REWIRE 90 et réserver mon entretien d’adéquation.",
+    "J’ai pris connaissance du tarif normal de 7 500 DH et de l’offre de lancement à 6 000 DH pour toute inscription confirmée avant le 10 septembre 2026, dans la limite des places disponibles."
   ].join("\n");
 
   resultTitle.textContent = interpretation.title;
