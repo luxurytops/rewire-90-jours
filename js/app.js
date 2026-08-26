@@ -94,7 +94,8 @@ function submitApplication(event) {
     `Difficulté principale : ${String(data.get("changeGoal") || "").trim()}`,
     latestDiagnostic ? `Orientation du mini-diagnostic : ${latestDiagnostic.title} (${latestDiagnostic.score}/16)` : "Mini-diagnostic : non réalisé",
     "",
-    "Je souhaite échanger pour vérifier si le programme correspond à ma situation."
+    "Je souhaite échanger pour vérifier si le programme correspond à ma situation.",
+    "J’ai pris connaissance de l’offre de lancement à 6 000 DH au lieu de 7 500 DH, valable pour une inscription confirmée avant le 10 septembre 2026, dans la limite des places disponibles."
   ].join("\n");
 
   applicationStatus.textContent = "WhatsApp va s’ouvrir. Confirmez l’envoi du message pour transmettre votre demande.";
