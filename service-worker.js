@@ -1,7 +1,7 @@
 "use strict";
 
 const CACHE_PREFIX = "rewire-90-";
-const STATIC_CACHE = `${CACHE_PREFIX}static-v8`;
+const STATIC_CACHE = `${CACHE_PREFIX}static-v10`;
 const DATA_CACHE = `${CACHE_PREFIX}data-v1`;
 
 const APP_SHELL = [

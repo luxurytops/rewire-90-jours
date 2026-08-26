@@ -73,11 +73,15 @@ Les paramètres de test ne modifient pas `data/data.json`. L’URL normale reste
 
 ## Parcours WhatsApp
 
-- Le résultat du mini-diagnostic peut être envoyé volontairement au contact REWIRE au `+212 662 334 479`.
+- Le mini-diagnostic comporte quatre questions, reste libre d’accès et affiche immédiatement une orientation locale.
+- Aucune coordonnée n’est demandée avant l’affichage du résultat.
+- Le bouton de résultat conduit vers une demande distincte et sans engagement.
+- La demande demande uniquement le prénom, le numéro WhatsApp et la difficulté principale.
+- Après validation, un message prérempli est ouvert vers le contact REWIRE au `+212 662 334 479`.
 - Les boutons « Rejoindre la communauté WhatsApp » orientent vers le groupe REWIRE dans un nouvel onglet.
-- Un formulaire préalable demande le nom complet, le téléphone, le genre et l'objet de changement avant d'afficher le diagnostic.
-- Ces informations restent en mémoire pendant la session et sont ajoutées au message WhatsApp préparé avec le résultat.
 - Aucun profil, message ni résultat n'est stocké ou transmis sans une action explicite de la personne dans WhatsApp.
+- Les étapes clés alimentent `window.dataLayer` et émettent l’événement `rewire:conversion` afin de pouvoir mesurer le tunnel lorsqu’un outil d’analytics sera connecté.
+- Google Analytics 4 est connecté avec l’ID de mesure `G-FHZL12TSKW` et reçoit directement les événements du tunnel.
 
 ## Vidéo de présentation
 

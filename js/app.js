@@ -2,54 +2,41 @@
 
 document.documentElement.dataset.jsReady = "true";
 
-const leadForm = document.querySelector("#leadForm");
-const leadStatus = document.querySelector("#leadStatus");
-const diagnosticPanel = document.querySelector("#diagnosticPanel");
 const diagnosticForm = document.querySelector("#rewireDiagnostic");
 const diagnosticResult = document.querySelector("#diagnosticResult");
 const resultTitle = document.querySelector("#resultTitle");
 const resultText = document.querySelector("#resultText");
 const resultScore = document.querySelector("#resultScore");
-const whatsappResultLink = document.querySelector("#whatsappResultLink");
 const diagnosticStatus = document.querySelector("#diagnosticStatus");
+const applicationForm = document.querySelector("#applicationForm");
+const applicationStatus = document.querySelector("#applicationStatus");
 const WHATSAPP_NUMBER = "212662334479";
-let leadProfile = null;
+let latestDiagnostic = null;
 
-function unlockDiagnostic(event) {
-  event.preventDefault();
-  if (!leadForm || !leadStatus || !diagnosticPanel) return;
-
-  if (!leadForm.reportValidity()) {
-    leadStatus.textContent = "Complétez les champs obligatoires et confirmez votre accord.";
-    return;
+function trackEvent(eventName, details = {}) {
+  const eventData = { event: eventName, page: "landing_rewire_90", ...details };
+  window.dataLayer = window.dataLayer || [];
+  if (typeof window.gtag === "function") {
+    window.gtag("event", eventName, { page_name: eventData.page, ...details });
+  } else {
+    window.dataLayer.push(eventData);
   }
-
-  const leadData = new FormData(leadForm);
-  leadProfile = {
-    fullName: String(leadData.get("fullName") || "").trim(),
-    phone: String(leadData.get("phone") || "").trim(),
-    gender: String(leadData.get("gender") || "").trim(),
-    changeGoal: String(leadData.get("changeGoal") || "").trim()
-  };
-
-  leadStatus.textContent = "Informations complétées. Le mini-diagnostic est maintenant disponible.";
-  diagnosticPanel.hidden = false;
-  diagnosticPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+  document.dispatchEvent(new CustomEvent("rewire:conversion", { detail: eventData }));
 }
 
-if (leadForm) {
-  leadForm.addEventListener("submit", unlockDiagnostic);
-}
+document.querySelectorAll("[data-track]").forEach((element) => {
+  element.addEventListener("click", () => trackEvent(element.dataset.track));
+});
 
 function interpretationFor(score) {
-  if (score <= 6) {
+  if (score <= 4) {
     return {
       title: "Des bases déjà présentes",
       text: "Vos réponses indiquent peu de freins récurrents. Identifiez une habitude utile et choisissez une preuve simple pour continuer à l’installer."
     };
   }
 
-  if (score <= 14) {
+  if (score <= 9) {
     return {
       title: "Des schémas à observer",
       text: "Certaines situations semblent freiner votre passage à l’action. Commencez par repérer un déclencheur récurrent et l’action concrète que vous souhaitez lui substituer."
@@ -64,48 +51,59 @@ function interpretationFor(score) {
 
 function showDiagnosticResult(event) {
   event.preventDefault();
-  if (!diagnosticForm || !diagnosticResult || !resultTitle || !resultText || !resultScore || !whatsappResultLink || !diagnosticStatus) return;
-
-  if (!leadProfile) {
-    diagnosticStatus.textContent = "Complétez d'abord le formulaire préalable.";
-    leadForm?.scrollIntoView({ behavior: "smooth", block: "start" });
-    return;
-  }
+  if (!diagnosticForm || !diagnosticResult || !resultTitle || !resultText || !resultScore || !diagnosticStatus) return;
 
   if (!diagnosticForm.reportValidity()) {
-    diagnosticStatus.textContent = "Répondez aux six questions pour afficher votre orientation.";
+    diagnosticStatus.textContent = "Répondez aux quatre questions pour afficher votre orientation.";
     return;
   }
 
   const answers = new FormData(diagnosticForm);
   const score = [...answers.values()].reduce((total, value) => total + Number(value), 0);
   const interpretation = interpretationFor(score);
-  const whatsappMessage = [
-    "Bonjour, je viens de terminer le mini-diagnostic REWIRE.",
-    "",
-    `Nom et prénom : ${leadProfile.fullName}`,
-    `Téléphone : ${leadProfile.phone}`,
-    `Genre : ${leadProfile.gender}`,
-    `Objet de changement : ${leadProfile.changeGoal}`,
-    "",
-    `Mon score indicatif : ${score}/24`,
-    `Mon orientation : ${interpretation.title}`,
-    "",
-    "Je souhaite obtenir plus d’informations sur le programme REWIRE 90."
-  ].join("\n");
+  latestDiagnostic = { score, title: interpretation.title };
 
   resultTitle.textContent = interpretation.title;
-  resultScore.textContent = `Score indicatif : ${score} / 24`;
+  resultScore.textContent = `Score indicatif : ${score} / 16`;
   resultText.textContent = interpretation.text;
-  whatsappResultLink.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
-  whatsappResultLink.hidden = false;
-  diagnosticStatus.textContent = "Votre orientation est prête. Vos informations ne sont transmises que si vous confirmez l'envoi dans WhatsApp.";
+  diagnosticStatus.textContent = "Votre orientation est prête.";
   diagnosticResult.hidden = false;
   diagnosticResult.focus();
+  trackEvent("diagnostic_complete", { score, orientation: interpretation.title });
 }
 
 if (diagnosticForm) {
   diagnosticForm.addEventListener("submit", showDiagnosticResult);
+}
+
+function submitApplication(event) {
+  event.preventDefault();
+  if (!applicationForm || !applicationStatus) return;
+
+  if (!applicationForm.reportValidity()) {
+    applicationStatus.textContent = "Complétez les trois champs et confirmez votre accord.";
+    return;
+  }
+
+  const data = new FormData(applicationForm);
+  const message = [
+    "Bonjour, je souhaite demander à rejoindre REWIRE 90.",
+    "",
+    `Prénom : ${String(data.get("firstName") || "").trim()}`,
+    `Numéro WhatsApp : ${String(data.get("phone") || "").trim()}`,
+    `Difficulté principale : ${String(data.get("changeGoal") || "").trim()}`,
+    latestDiagnostic ? `Orientation du mini-diagnostic : ${latestDiagnostic.title} (${latestDiagnostic.score}/16)` : "Mini-diagnostic : non réalisé",
+    "",
+    "Je souhaite échanger pour vérifier si le programme correspond à ma situation."
+  ].join("\n");
+
+  applicationStatus.textContent = "WhatsApp va s’ouvrir. Confirmez l’envoi du message pour transmettre votre demande.";
+  trackEvent("application_whatsapp_open", { diagnostic_completed: Boolean(latestDiagnostic) });
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
+}
+
+if (applicationForm) {
+  applicationForm.addEventListener("submit", submitApplication);
 }
 
 const methodsList = document.querySelector("#methodsList");

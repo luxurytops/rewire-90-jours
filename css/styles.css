@@ -49,10 +49,10 @@ h3 { color: var(--navy-700); line-height: 1.2; }
 .trust-note { margin-top: 1.25rem; color: #b9c8d9; font-size: .88rem; }
 .presentation-video { position: relative; overflow: hidden; padding-block: clamp(3.5rem, 7vw, 6.5rem); color: #fff; text-align: center; background: radial-gradient(circle at 50% 42%, #173f68 0, var(--navy-950) 48%, #050e1d 100%); }
 .presentation-video::before { position: absolute; inset: 0; pointer-events: none; content: ""; background: linear-gradient(135deg, rgba(234,212,155,.08), transparent 35%, rgba(255,255,255,.03)); }
-.video-intro { position: relative; display: grid; justify-items: center; gap: clamp(1.5rem, 3vw, 2.25rem); }
-.video-copy { max-width: 48rem; }
+.video-intro { position: relative; display: grid; min-width: 0; justify-items: center; gap: clamp(1.5rem, 3vw, 2.25rem); }
+.video-copy { width: 100%; min-width: 0; max-width: 48rem; }
 .video-copy .eyebrow { margin-bottom: .8rem; }
-.video-copy h2 { margin: 0 0 1rem; color: #fff; font-size: clamp(2.35rem, 6vw, 4.5rem); line-height: 1.02; }
+.video-copy h2 { margin: 0 0 1rem; color: #fff; font-size: clamp(2rem, 6vw, 4.5rem); line-height: 1.02; }
 .video-copy > p:not(.eyebrow) { max-width: 42rem; margin-inline: auto; color: #dce7f3; font-size: clamp(1.05rem, 2vw, 1.25rem); }
 .video-frame { width: min(100%, 28rem); margin-inline: auto; overflow: hidden; border: 2px solid rgba(234,212,155,.65); border-radius: 1.25rem; background: #000; box-shadow: 0 1.5rem 4rem rgba(0,0,0,.55), 0 0 0 .45rem rgba(255,255,255,.04); aspect-ratio: 9 / 16; }
 .video-frame iframe { display: block; width: 100%; height: 100%; border: 0; }
@@ -67,6 +67,7 @@ h3 { color: var(--navy-700); line-height: 1.2; }
 .card span { color: var(--gold-600); font-weight: 900; }
 .card h3 { margin: .75rem 0 .5rem; }
 .card p { margin: 0; color: var(--muted); }
+.recognition-note { max-width: 48rem; margin: 2rem auto 0; padding: 1.15rem 1.35rem; color: var(--navy-700); background: #fff8e8; border-left: .25rem solid var(--gold-400); font-weight: 800; }
 .method-section { color: #dfe9f4; background: var(--navy-900); }
 .method-grid article { padding: 1.5rem; border-top: 1px solid rgba(234,212,155,.35); }
 .method-grid b { color: var(--gold-200); font-size: .8rem; letter-spacing: .15em; }
@@ -94,17 +95,12 @@ h3 { color: var(--navy-700); line-height: 1.2; }
 .coach-grid figure img { width: 100%; max-height: 36rem; object-fit: cover; object-position: center 20%; }
 blockquote { margin: 1.75rem 0; padding-left: 1.25rem; color: var(--navy-700); border-left: .25rem solid var(--gold-400); font-size: 1.1rem; font-weight: 700; }
 .diagnostic-section { background: var(--mist); }
-.lead-form { margin-top: 2rem; }
-.lead-form fieldset { margin: 0; padding: clamp(1.25rem, 4vw, 2rem); background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
-.lead-form legend { padding-inline: .5rem; color: var(--navy-900); font-size: 1.2rem; font-weight: 900; }
 .lead-fields { display: grid; gap: 1rem; }
 .lead-fields label { display: grid; gap: .35rem; color: var(--navy-900); font-weight: 800; }
 .lead-fields input, .lead-fields select, .lead-fields textarea { width: 100%; min-height: 3rem; padding: .7rem .8rem; color: var(--ink); background: #fff; border: 1px solid #aeb9c7; border-radius: .45rem; font: inherit; }
 .lead-fields textarea { min-height: 7rem; resize: vertical; }
 .consent { display: flex; align-items: flex-start; gap: .65rem; margin-block: 1.25rem; color: var(--muted); font-size: .9rem; }
 .consent input { flex: 0 0 auto; width: 1.15rem; height: 1.15rem; margin-top: .2rem; accent-color: var(--navy-700); }
-#diagnosticPanel { margin-top: 2.5rem; }
-#diagnosticPanel[hidden] { display: none; }
 #rewireDiagnostic { display: grid; gap: 1rem; margin-top: 2rem; }
 #rewireDiagnostic fieldset { min-width: 0; margin: 0; padding: 1.25rem; background: #fff; border: 1px solid var(--line); border-radius: .8rem; }
 #rewireDiagnostic legend { padding-inline: .35rem; color: var(--navy-900); font-weight: 800; }
@@ -118,6 +114,17 @@ blockquote { margin: 1.75rem 0; padding-left: 1.25rem; color: var(--navy-700); b
 .button.whatsapp { margin-top: .75rem; color: #fff; background: #1f8f55; border-color: #1f8f55; }
 .button.whatsapp[hidden] { display: none; }
 .privacy-note { color: var(--muted); font-size: .8rem; }
+.application-section { color: #dfe9f4; background: linear-gradient(135deg, var(--navy-950), var(--navy-700)); }
+.application-section h2, .application-section h3 { color: #fff; }
+.application-grid { display: grid; gap: 2.5rem; align-items: start; }
+.next-steps { display: grid; gap: .75rem; margin: 2rem 0 0; padding: 0; list-style: none; counter-reset: next-step; }
+.next-steps li { position: relative; padding-left: 2.5rem; counter-increment: next-step; }
+.next-steps li::before { position: absolute; left: 0; display: grid; width: 1.75rem; height: 1.75rem; place-items: center; color: var(--navy-950); background: var(--gold-200); border-radius: 50%; content: counter(next-step); font-size: .75rem; font-weight: 900; }
+.application-form fieldset { margin: 0; padding: clamp(1.25rem, 4vw, 2rem); color: var(--ink); background: #fff; border: 0; border-radius: var(--radius); box-shadow: var(--shadow); }
+.application-form legend { max-width: 90%; padding: .5rem .75rem; color: var(--navy-900); background: #fff; border-radius: .5rem; font-size: 1.15rem; font-weight: 900; }
+.light { color: #dfe9f4; }
+.application-form .light { color: var(--muted); }
+.centered { justify-content: center; }
 .contact-section { color: #dfe9f4; background: var(--navy-900); text-align: center; }
 .contact-section h2 { margin-inline: auto; color: #fff; }
 .contact-section p:not(.eyebrow) { max-width: 48rem; margin-inline: auto; }
@@ -139,6 +146,7 @@ footer p { margin-bottom: 0; font-size: .85rem; }
   .question-grid, .proof-grid { grid-template-columns: repeat(3, 1fr); }
   .method-grid { grid-template-columns: repeat(2, 1fr); }
   .program-grid, .coach-grid { grid-template-columns: 1fr 1fr; }
+  .application-grid { grid-template-columns: minmax(0, .9fr) minmax(22rem, 1.1fr); }
   .answers { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 }
 
