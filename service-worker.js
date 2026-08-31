@@ -1,7 +1,7 @@
 "use strict";
 
 const CACHE_PREFIX = "rewire-90-";
-const STATIC_CACHE = `${CACHE_PREFIX}static-v14`;
+const STATIC_CACHE = `${CACHE_PREFIX}static-v15`;
 const DATA_CACHE = `${CACHE_PREFIX}data-v1`;
 
 const APP_SHELL = [
@@ -12,6 +12,7 @@ const APP_SHELL = [
   "./manifest.webmanifest",
   "./assets/images/hero-rewire.webp",
   "./assets/images/mohamed-boumrah-about.webp",
+  "./assets/images/affiche-masterclass-rewire.png",
   "./assets/images/flyer-rewire-2026.jpeg",
   "./assets/icons/icon-192.png",
   "./assets/icons/icon-512.png",
