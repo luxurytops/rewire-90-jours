@@ -44,8 +44,3 @@ Tests exécutés avec `audit-browser.mjs` (résultats dans `audit-browser-result
 - mise à jour réelle du service worker avec version de test temporaire : activation du nouveau cache, suppression de l’ancien et rechargement hors ligne du portfolio et du JavaScript réussis. Fichier source restauré ensuite.
 
 Restent à faire humainement : installation sur téléphone, rendu visuel et lisibilité détaillée, parcours clavier complet, zoom navigateur à 200 %, lecteur d’écran, trafic analytique réel et recette après publication. Aucun envoi WhatsApp à une personne effectué.
-
-
-## Extension du 7 septembre 2026
-
-Cache `static-v17` : ajout des fiches de preuves, images et sources publiables. Liens locaux des fiches et des deux portfolios vérifiés ; aucun lien ne sort de la racine publique. Les captures ont été contrôlées dans Edge avant publication. Le test de mise à jour réel du 6 septembre concernait v16 ; cette extension reste à vérifier humainement après publication.

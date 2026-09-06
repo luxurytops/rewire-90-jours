@@ -1,0 +1,71 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Construire le mini-site — Preuve REWIRE</title><link rel="stylesheet" href="style.css"><main><p class="tag">P06 · SOURCE DOCUMENTAIRE</p><h1>Construire le mini-site</h1><p>Capture navigateur réalisée le 7 septembre 2026 à partir de la réalisation locale existante. Les documents sources ci-dessous conservent leurs statuts historiques.</p><article><h2>preuve-18-mini-site-v1.md</h2><p class="source">Source : 05-web/preuve-18-mini-site-v1.md</p><p><a href="sources/P06/preuve-18-mini-site-v1.md">Ouvrir le fichier source original</a></p><pre># Preuve 18 — Mini-site V1 REWIRE YOUR MIND — 90 JOURS
+
+- Date : 2 août 2026
+- Statut : À VALIDER
+- Projet : REWIRE YOUR MIND — 90 JOURS
+- Public : professionnels, entrepreneurs, freelances et personnes en transition confrontés à des blocages dans le passage à l’action
+- Objectif : présenter une démarche progressive reliant prise de conscience, décisions, actions et preuves observables
+
+## Guide source utilisé
+
+- `REWIRE_90_PROJECT_GUIDE.html`
+- `REWIRE_90_Note_de_cadrage_mini_site.html`
+- `REWIRE_90_Fiche_projet_mini_site.html`
+
+## Adaptation réalisée
+
+Les documents métier et les données explicites du candidat ont été synthétisés en huit sections : accueil, problématiques, quatre mouvements REWIRE, parcours 90 jours, preuves, mini-diagnostic, à propos et contact. Les informations non prouvées ont été omises.
+
+## Fichiers produits
+
+- `mini-site-v1/index.html`
+- `mini-site-v1/css/styles.css`
+- `mini-site-v1/js/app.js`
+- `mini-site-v1/assets/images/mohamed-boumrah-hero.webp`
+- `mini-site-v1/assets/images/mohamed-boumrah-about.webp`
+- `mini-site-v1/README.md`
+
+## Rôle des technologies
+
+- HTML structure le contenu et conserve toutes les informations essentielles sans JavaScript.
+- CSS applique l’identité premium bleu profond, blanc et doré, ainsi que la mise en page responsive.
+- JavaScript gère uniquement le mini-diagnostic local de six questions et son interprétation non médicale.
+
+## Tests exécutés et résultats
+
+- Un `h1` et huit sections détectés : conforme.
+- CSS, JavaScript et deux images reliés par des chemins relatifs : tous présents.
+- Aucun lorem ipsum, champ « À compléter », URL distante, chemin absolu exposé ou technologie interdite détecté dans la page publique.
+- Rendus Edge headless à 768 px et 1100 px : cohérents lors de l’inspection visuelle.
+- Google Chrome headless a rendu la page et confirmé l’exécution initiale du JavaScript avec l’attribut `data-js-ready=&quot;true&quot;`.
+- Audit statique du diagnostic : six questions, trente choix, trois interprétations, validation native, aucun réseau, stockage, `innerHTML` ou `eval`.
+- Le premier contrôle mobile a montré un cadrage tronqué lié à la largeur minimale du navigateur headless. Les contraintes CSS de largeur et les actions mobiles ont été renforcées ; une validation sur appareil réel reste requise.
+- L’activation humaine de toutes les réponses et des trois résultats du mini-diagnostic reste à réaliser.
+- Validation syntaxique JavaScript indépendante non exécutée : aucun moteur moderne en ligne de commande disponible.
+
+## Tests humains à réaliser
+
+- affichage réel à 320–390 px et zoom à 200 % ;
+- ouverture et fermeture du menu à la souris, au toucher, au clavier et avec Échap ;
+- focus visible et ordre de tabulation ;
+- console, rendu des images et relecture éditoriale ;
+- compréhension du rôle de chaque fichier par le candidat.
+
+## Difficultés et corrections rencontrées
+
+Le rendu headless à 320 px ne reflétait pas une largeur CSS mobile fiable. Les conteneurs ont reçu une largeur calculée explicite, les blocs flexibles une largeur minimale nulle et les boutons passent en pile sous 432 px.
+
+L’audit final a également montré que la navigation mobile était masquée lorsque JavaScript était désactivé. Le CSS et le script ont été ajustés pour afficher la navigation par défaut et n’activer son masquage interactif que lorsque JavaScript est disponible.
+
+## Acquis mobilisés
+
+Structure HTML sémantique, CSS mobile-first, chemins relatifs, images locales, interaction native, attributs ARIA et documentation des limites.
+
+## Points à améliorer
+
+Valider l’affichage sur un appareil mobile réel, confirmer les coordonnées publiques avant d’ajouter un contact et enrichir les preuves uniquement lorsqu’elles seront documentées.
+
+## Retour du formateur
+
+Le mini-site V1 montre une bonne compréhension des attendus du projet : structure HTML claire, usage maîtrisé des ressources locales, cohérence éditoriale et démarche de preuve visible. La version proposée est déjà crédible pour une première livraison, à condition de valider définitivement l’affichage sur appareil réel et d’affiner la partie contact une fois les coordonnées publiques confirmées.
+</pre></article></main></html>

@@ -1,0 +1,126 @@
+{
+  "commit": "6315ae9",
+  "checkedAt": "2026-09-06T22:56:07.499Z",
+  "results": [
+    {
+      "url": "https://luxurytops.github.io/rewire-90-jours/",
+      "status": 200,
+      "identical": true
+    },
+    {
+      "url": "https://luxurytops.github.io/rewire-90-jours/index.html",
+      "status": 200,
+      "identical": true
+    },
+    {
+      "url": "https://luxurytops.github.io/rewire-90-jours/portfolio-v1/",
+      "status": 200,
+      "identical": true
+    },
+    {
+      "url": "https://luxurytops.github.io/rewire-90-jours/portfolio-v1/index.html",
+      "status": 200,
+      "identical": true
+    },
+    {
+      "url": "https://luxurytops.github.io/rewire-90-jours/portfolio/",
+      "status": 200,
+      "identical": true
+    },
+    {
+      "url": "https://luxurytops.github.io/rewire-90-jours/portfolio/index.html",
+      "status": 200,
+      "identical": true
+    },
+    {
+      "url": "https://luxurytops.github.io/rewire-90-jours/portfolio/style.css",
+      "status": 200,
+      "identical": true
+    },
+    {
+      "url": "https://luxurytops.github.io/rewire-90-jours/css/styles.css?v=16",
+      "status": 200,
+      "identical": true
+    },
+    {
+      "url": "https://luxurytops.github.io/rewire-90-jours/js/app.js?v=16",
+      "status": 200,
+      "identical": true
+    },
+    {
+      "url": "https://luxurytops.github.io/rewire-90-jours/manifest.webmanifest",
+      "status": 200,
+      "identical": true
+    },
+    {
+      "url": "https://luxurytops.github.io/rewire-90-jours/assets/images/hero-rewire.webp",
+      "status": 200,
+      "identical": true
+    },
+    {
+      "url": "https://luxurytops.github.io/rewire-90-jours/assets/images/mohamed-boumrah-about.webp",
+      "status": 200,
+      "identical": true
+    },
+    {
+      "url": "https://luxurytops.github.io/rewire-90-jours/assets/images/affiche-masterclass-rewire.webp",
+      "status": 200,
+      "identical": true
+    },
+    {
+      "url": "https://luxurytops.github.io/rewire-90-jours/assets/images/flyer-rewire-2026.jpeg",
+      "status": 200,
+      "identical": true
+    },
+    {
+      "url": "https://luxurytops.github.io/rewire-90-jours/assets/icons/icon-192.png",
+      "status": 200,
+      "identical": true
+    },
+    {
+      "url": "https://luxurytops.github.io/rewire-90-jours/assets/icons/icon-512.png",
+      "status": 200,
+      "identical": true
+    },
+    {
+      "url": "https://luxurytops.github.io/rewire-90-jours/assets/icons/icon-maskable-192.png",
+      "status": 200,
+      "identical": true
+    },
+    {
+      "url": "https://luxurytops.github.io/rewire-90-jours/assets/icons/icon-maskable-512.png",
+      "status": 200,
+      "identical": true
+    },
+    {
+      "url": "https://luxurytops.github.io/rewire-90-jours/assets/icons/apple-touch-icon.png",
+      "status": 200,
+      "identical": true
+    },
+    {
+      "url": "https://luxurytops.github.io/rewire-90-jours/assets/icons/favicon-32.png",
+      "status": 200,
+      "identical": true
+    },
+    {
+      "url": "https://luxurytops.github.io/rewire-90-jours/service-worker.js",
+      "status": 200,
+      "identical": true
+    },
+    {
+      "url": "https://luxurytops.github.io/rewire-90-jours/data/data.json",
+      "status": 200,
+      "identical": true
+    },
+    {
+      "url": "https://luxurytops.github.io/rewire-90-jours/VALIDATION-PWA.md",
+      "status": 200,
+      "identical": true
+    },
+    {
+      "url": "https://luxurytops.github.io/rewire-90-jours/README.md",
+      "status": 200,
+      "identical": true
+    }
+  ]
+}

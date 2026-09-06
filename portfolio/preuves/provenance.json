@@ -1,0 +1,152 @@
+{
+  "created": "2026-09-07",
+  "notice": "Captures actuelles de sources existantes ; aucune validation historique ajoutée.",
+  "proofs": [
+    {
+      "id": "P01",
+      "title": "Clarifier un objectif",
+      "capture": "00-presentation-jury/portfolio/preuves/P01-source.html",
+      "sources": [
+        {
+          "path": "07-portfolio/preuves/P01/resultat-objectif-clair.md",
+          "sha256": "9185dfea7a193d2df3ecc8064faf778ed796542ce47563f7442a4d6fa0850437"
+        }
+      ]
+    },
+    {
+      "id": "P02",
+      "title": "Structurer un prompt",
+      "capture": "00-presentation-jury/portfolio/preuves/P02-source.html",
+      "sources": [
+        {
+          "path": "07-portfolio/preuves/P02/resultat-prompt-simple-v1.md",
+          "sha256": "2e3a920b92ea7aec774e6f868f2121a0b49740e826220e99b7e607fc9221498e"
+        },
+        {
+          "path": "07-portfolio/preuves/P02/resultat-prompt-structure-v1.md",
+          "sha256": "47cca6483a6073831b7f4dc974a270c09cd195d25cca7a0285dc727a64387efc"
+        }
+      ]
+    },
+    {
+      "id": "P03",
+      "title": "Contrôler une réponse IA",
+      "capture": "00-presentation-jury/portfolio/preuves/P03-source.html",
+      "sources": [
+        {
+          "path": "07-portfolio/preuves/P03/resultat-controle-reponse-ia.md",
+          "sha256": "47fa2dd28c3729c3b859f630cdbff53a62b4ffe940af5ede6f415f7b9360914b"
+        }
+      ]
+    },
+    {
+      "id": "P04",
+      "title": "Produire des documents",
+      "capture": "00-presentation-jury/portfolio/preuves/P04-source.html",
+      "sources": [
+        {
+          "path": "07-portfolio/preuves/P04/resultat-01-note-cadrage-courte.md",
+          "sha256": "4b3e34b6ad4666605fcbda0b148d0630f7430516cd2e751e0dad3fec4962cb9f"
+        },
+        {
+          "path": "07-portfolio/preuves/P04/resultat-02-correction-note-cadrage.md",
+          "sha256": "a47e08f2b586444c9f38ec76f73c66ace3878c0f8246fda3da701849f5eab9e4"
+        },
+        {
+          "path": "07-portfolio/preuves/P04/resultat-02-fiche-projet-v1.md",
+          "sha256": "0cc32eb534e2aa85540b6d37c5618a1792a2cfaf43afda4c33c0e61e7264316c"
+        },
+        {
+          "path": "07-portfolio/preuves/P04/resultat-03-correction-fiche-projet.md",
+          "sha256": "e3a6f3970bda8a24825dcd0b5034ce0074efd92a7a28333ed86da914a954d644"
+        }
+      ]
+    },
+    {
+      "id": "P05",
+      "title": "Adapter la communication",
+      "capture": "00-presentation-jury/portfolio/preuves/P05-source.html",
+      "sources": [
+        {
+          "path": "07-portfolio/preuves/P05/resultat-03-comparaison-messages.md",
+          "sha256": "920e655498b4f2f33253424eed6697b05c30743ccccce828f8e3601ef7d6cd63"
+        },
+        {
+          "path": "07-portfolio/preuves/P05/resultat-04-correction-expliquee-et-preuve.md",
+          "sha256": "4b4b9ff5a9910438379d350c40fb67131cf07737a65864757dcf74cf06545dd2"
+        },
+        {
+          "path": "07-portfolio/preuves/P05/resultat-06-preuve-portfolio.md",
+          "sha256": "c2de26eacc30539d9b729b0abd5f84992c8440f6e48f5eadeaedaf63a690c837"
+        }
+      ]
+    },
+    {
+      "id": "P06",
+      "title": "Construire le mini-site",
+      "capture": "05-web/mini-site-v1/index.html",
+      "sources": [
+        {
+          "path": "05-web/preuve-18-mini-site-v1.md",
+          "sha256": "ca150b21a7bb74683497588aedc67b87481ac8b2acdacd44f7c6966bb8f47bcc"
+        }
+      ]
+    },
+    {
+      "id": "P07",
+      "title": "Faire évoluer la V1",
+      "capture": "05-web/mini-site-v2/index.html",
+      "sources": [
+        {
+          "path": "05-web/preuve-19-json-pwa.md",
+          "sha256": "418094105719b9f34246c7e38476a49e1e860d19cc661331a680c5fcd4b89af0"
+        },
+        {
+          "path": "github-deploy/rewire-90-jours/data/data.json",
+          "sha256": "5b018c0ce6016e6fcbaa9f11c84ea5eb0974a30a0959ca0faa136d91413a66a9"
+        }
+      ]
+    },
+    {
+      "id": "P08",
+      "title": "Publier la PWA",
+      "capture": "00-presentation-jury/portfolio/preuves/P08-source.html",
+      "sources": [
+        {
+          "path": "github-deploy/rewire-90-jours/VALIDATION-PWA.md",
+          "sha256": "a66a0b05447f2e5a20238986f5c452c15888e780fe6df644a33031029c702904"
+        },
+        {
+          "path": "audit-browser-results.json",
+          "sha256": "c2c895c80adb560fe5f8c6fe2773831216ffea098f98ea70e772b0fb2fefd997"
+        },
+        {
+          "path": "publication-verification-2026-09-06.json",
+          "sha256": "e7657a16a08f5cc422d53e273c28bf83914b9c1bd1ad1c00dc60e18f70a846b1"
+        }
+      ]
+    },
+    {
+      "id": "P09",
+      "title": "Tracer avec Git/GitHub",
+      "capture": "00-presentation-jury/portfolio/preuves/P09-source.html",
+      "sources": [
+        {
+          "path": "06-workflow-git-github/06-preuve-seance-24.md",
+          "sha256": "bf09698c0d29d95886f6192391b79c084526c040cca4ec7e5a0eae35aa6bed76"
+        }
+      ]
+    },
+    {
+      "id": "P10",
+      "title": "Protéger les données",
+      "capture": "00-presentation-jury/portfolio/preuves/P10-source.html",
+      "sources": [
+        {
+          "path": "07-portfolio/06-index-preuves-v2.md",
+          "sha256": "8ba8f5956a869d77aef6230eedb8dfdc4e818e51ae1a3bf1373c39ce189f0748"
+        }
+      ]
+    }
+  ]
+}

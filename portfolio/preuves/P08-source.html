@@ -1,0 +1,180 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Publier la PWA — Preuve REWIRE</title><link rel="stylesheet" href="style.css"><main><p class="tag">P08 · SOURCE DOCUMENTAIRE</p><h1>Publier la PWA</h1><p>Capture réalisée le 7 septembre 2026 de la mise en lecture des fichiers sources existants. Ce rendu documentaire ne constitue pas une capture historique de l’outil utilisé ni une nouvelle validation humaine.</p><article><h2>VALIDATION-PWA.md</h2><p class="source">Source : github-deploy/rewire-90-jours/VALIDATION-PWA.md</p><p><a href="sources/P08/VALIDATION-PWA.md">Ouvrir le fichier source original</a></p><pre># Validation PWA — REWIRE YOUR MIND — 90 JOURS
+
+- Date : 10 août 2026
+- URL : `https://luxurytops.github.io/rewire-90-jours/`
+- Navigateur : Google Chrome sur Windows
+- Statut : **PWA INSTALLÉE — FONCTIONNEMENT HORS CONNEXION PRINCIPAL VALIDÉ**
+
+## Contrôles confirmés
+
+- publication HTTPS GitHub Pages ;
+- manifeste et icône REWIRE reconnus ;
+- service worker actif ;
+- ouverture dans une fenêtre autonome ;
+- rechargement réussi après désactivation du Wi-Fi.
+
+## Contrôles complémentaires recommandés
+
+- mini-diagnostic complet hors connexion ;
+- nettoyage des caches suivi d’un nouveau test ;
+- installation sur mobile ;
+- zoom à 200 % et lecteur d’écran ;
+- mise à jour automatique lors du prochain changement de cache.
+
+---
+
+## Recette de la correction — 6 septembre 2026
+
+Le statut du 10 août ci-dessus est une trace historique. Il ne vaut pas validation humaine de la correction actuelle.
+
+Version : correction locale depuis `5be33f8`, cache `static-v16`, recette locale préalable à la publication autorisée le 6 septembre 2026.
+Navigateur : Microsoft Edge 145, Windows, headless, profil temporaire neuf.
+
+Tests exécutés avec `audit-browser.mjs` (résultats dans `audit-browser-results.json`, à la racine du projet) :
+
+- formulaires vides refusés, consentement requis ;
+- diagnostic aux seuils 0, 4, 5, 9, 10 et 16 conforme ;
+- message WhatsApp intercepté sans ouverture ni envoi, accents et caractères spéciaux conservés ;
+- aucune valeur du diagnostic/formulaire dans les événements analytiques inspectés ; appels Google bloqués pendant la recette ;
+- accueil et deux portfolios sans débordement horizontal à 320, 390, 768 et 1100 px ;
+- largeur CSS de 550 px contrôlée pour simuler la place disponible à 200 % sur 1100 px ; ce contrôle ne remplace pas le zoom navigateur ;
+- premier Tab atteint un lien ;
+- après première visite, coupure des réponses du serveur local et réseau de la page désactivé : accueil et portfolios distincts, CSS/JS `?v=16` accessibles ;
+- adresse inconnue : message explicite hors connexion ;
+- mise à jour réelle du service worker avec version de test temporaire : activation du nouveau cache, suppression de l’ancien et rechargement hors ligne du portfolio et du JavaScript réussis. Fichier source restauré ensuite.
+
+Restent à faire humainement : installation sur téléphone, rendu visuel et lisibilité détaillée, parcours clavier complet, zoom navigateur à 200 %, lecteur d’écran, trafic analytique réel et recette après publication. Aucun envoi WhatsApp à une personne effectué.
+</pre></article><article><h2>audit-browser-results.json</h2><p class="source">Source : audit-browser-results.json</p><p><a href="sources/P08/audit-browser-results.json">Ouvrir le fichier source original</a></p><pre>[
+  &quot;Formulaires vides refusés par la validation native.&quot;,
+  &quot;Diagnostic : seuils 0, 4, 5, 9, 10 et 16 conformes.&quot;,
+  &quot;Consentement requis ; message WhatsApp encodé et intercepté sans ouverture ni envoi ; aucune valeur du diagnostic/formulaire dans dataLayer.&quot;,
+  &quot;Accueil et deux portfolios : pas de débordement horizontal à 320, 390, 768, 1100 px ; largeur CSS 550 px simulant la mise en page à 200 % sur 1100 px (zoom navigateur humain restant).&quot;,
+  &quot;Clavier : premier Tab atteint un lien ; parcours complet humain restant.&quot;,
+  &quot;Hors ligne après première visite : contenus distincts, CSS/JS versionnés disponibles, page inconnue avec message explicite.&quot;,
+  &quot;Mise à jour réelle du service worker : nouveau cache actif, ancien cache supprimé, JS et portfolio accessibles hors ligne.&quot;
+]</pre></article><article><h2>publication-verification-2026-09-06.json</h2><p class="source">Source : publication-verification-2026-09-06.json</p><p><a href="sources/P08/publication-verification-2026-09-06.json">Ouvrir le fichier source original</a></p><pre>{
+  &quot;commit&quot;: &quot;6315ae9&quot;,
+  &quot;checkedAt&quot;: &quot;2026-09-06T22:56:07.499Z&quot;,
+  &quot;results&quot;: [
+    {
+      &quot;url&quot;: &quot;https://luxurytops.github.io/rewire-90-jours/&quot;,
+      &quot;status&quot;: 200,
+      &quot;identical&quot;: true
+    },
+    {
+      &quot;url&quot;: &quot;https://luxurytops.github.io/rewire-90-jours/index.html&quot;,
+      &quot;status&quot;: 200,
+      &quot;identical&quot;: true
+    },
+    {
+      &quot;url&quot;: &quot;https://luxurytops.github.io/rewire-90-jours/portfolio-v1/&quot;,
+      &quot;status&quot;: 200,
+      &quot;identical&quot;: true
+    },
+    {
+      &quot;url&quot;: &quot;https://luxurytops.github.io/rewire-90-jours/portfolio-v1/index.html&quot;,
+      &quot;status&quot;: 200,
+      &quot;identical&quot;: true
+    },
+    {
+      &quot;url&quot;: &quot;https://luxurytops.github.io/rewire-90-jours/portfolio/&quot;,
+      &quot;status&quot;: 200,
+      &quot;identical&quot;: true
+    },
+    {
+      &quot;url&quot;: &quot;https://luxurytops.github.io/rewire-90-jours/portfolio/index.html&quot;,
+      &quot;status&quot;: 200,
+      &quot;identical&quot;: true
+    },
+    {
+      &quot;url&quot;: &quot;https://luxurytops.github.io/rewire-90-jours/portfolio/style.css&quot;,
+      &quot;status&quot;: 200,
+      &quot;identical&quot;: true
+    },
+    {
+      &quot;url&quot;: &quot;https://luxurytops.github.io/rewire-90-jours/css/styles.css?v=16&quot;,
+      &quot;status&quot;: 200,
+      &quot;identical&quot;: true
+    },
+    {
+      &quot;url&quot;: &quot;https://luxurytops.github.io/rewire-90-jours/js/app.js?v=16&quot;,
+      &quot;status&quot;: 200,
+      &quot;identical&quot;: true
+    },
+    {
+      &quot;url&quot;: &quot;https://luxurytops.github.io/rewire-90-jours/manifest.webmanifest&quot;,
+      &quot;status&quot;: 200,
+      &quot;identical&quot;: true
+    },
+    {
+      &quot;url&quot;: &quot;https://luxurytops.github.io/rewire-90-jours/assets/images/hero-rewire.webp&quot;,
+      &quot;status&quot;: 200,
+      &quot;identical&quot;: true
+    },
+    {
+      &quot;url&quot;: &quot;https://luxurytops.github.io/rewire-90-jours/assets/images/mohamed-boumrah-about.webp&quot;,
+      &quot;status&quot;: 200,
+      &quot;identical&quot;: true
+    },
+    {
+      &quot;url&quot;: &quot;https://luxurytops.github.io/rewire-90-jours/assets/images/affiche-masterclass-rewire.webp&quot;,
+      &quot;status&quot;: 200,
+      &quot;identical&quot;: true
+    },
+    {
+      &quot;url&quot;: &quot;https://luxurytops.github.io/rewire-90-jours/assets/images/flyer-rewire-2026.jpeg&quot;,
+      &quot;status&quot;: 200,
+      &quot;identical&quot;: true
+    },
+    {
+      &quot;url&quot;: &quot;https://luxurytops.github.io/rewire-90-jours/assets/icons/icon-192.png&quot;,
+      &quot;status&quot;: 200,
+      &quot;identical&quot;: true
+    },
+    {
+      &quot;url&quot;: &quot;https://luxurytops.github.io/rewire-90-jours/assets/icons/icon-512.png&quot;,
+      &quot;status&quot;: 200,
+      &quot;identical&quot;: true
+    },
+    {
+      &quot;url&quot;: &quot;https://luxurytops.github.io/rewire-90-jours/assets/icons/icon-maskable-192.png&quot;,
+      &quot;status&quot;: 200,
+      &quot;identical&quot;: true
+    },
+    {
+      &quot;url&quot;: &quot;https://luxurytops.github.io/rewire-90-jours/assets/icons/icon-maskable-512.png&quot;,
+      &quot;status&quot;: 200,
+      &quot;identical&quot;: true
+    },
+    {
+      &quot;url&quot;: &quot;https://luxurytops.github.io/rewire-90-jours/assets/icons/apple-touch-icon.png&quot;,
+      &quot;status&quot;: 200,
+      &quot;identical&quot;: true
+    },
+    {
+      &quot;url&quot;: &quot;https://luxurytops.github.io/rewire-90-jours/assets/icons/favicon-32.png&quot;,
+      &quot;status&quot;: 200,
+      &quot;identical&quot;: true
+    },
+    {
+      &quot;url&quot;: &quot;https://luxurytops.github.io/rewire-90-jours/service-worker.js&quot;,
+      &quot;status&quot;: 200,
+      &quot;identical&quot;: true
+    },
+    {
+      &quot;url&quot;: &quot;https://luxurytops.github.io/rewire-90-jours/data/data.json&quot;,
+      &quot;status&quot;: 200,
+      &quot;identical&quot;: true
+    },
+    {
+      &quot;url&quot;: &quot;https://luxurytops.github.io/rewire-90-jours/VALIDATION-PWA.md&quot;,
+      &quot;status&quot;: 200,
+      &quot;identical&quot;: true
+    },
+    {
+      &quot;url&quot;: &quot;https://luxurytops.github.io/rewire-90-jours/README.md&quot;,
+      &quot;status&quot;: 200,
+      &quot;identical&quot;: true
+    }
+  ]
+}</pre></article></main></html>

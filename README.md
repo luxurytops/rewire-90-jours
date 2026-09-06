@@ -32,3 +32,7 @@ Le bilan de soutenance, le script navigateur reproductible et ses résultats son
 ## Publication
 
 Publication autorisée le 6 septembre 2026, avec toutes les ressources du cache. La recette documentée est locale ; elle ne constitue pas une validation humaine du site publié.
+
+## Preuves visuelles — 7 septembre 2026
+
+Les fiches P01 à P10 et leurs captures sont publiées dans [la galerie des preuves](portfolio/preuves/index.html), avec les sources documentaires. Chaque carte des deux portfolios ouvre sa fiche. Publication des pièces présentées autorisée le 7 septembre ; P10 reste limité aux règles de confidentialité. Cache actualisé en `static-v17`, incluant les fiches et images. Les statuts d’accès restreint décrits plus haut correspondent à la version précédente.

@@ -1,0 +1,9 @@
+[
+  "Formulaires vides refusés par la validation native.",
+  "Diagnostic : seuils 0, 4, 5, 9, 10 et 16 conformes.",
+  "Consentement requis ; message WhatsApp encodé et intercepté sans ouverture ni envoi ; aucune valeur du diagnostic/formulaire dans dataLayer.",
+  "Accueil et deux portfolios : pas de débordement horizontal à 320, 390, 768, 1100 px ; largeur CSS 550 px simulant la mise en page à 200 % sur 1100 px (zoom navigateur humain restant).",
+  "Clavier : premier Tab atteint un lien ; parcours complet humain restant.",
+  "Hors ligne après première visite : contenus distincts, CSS/JS versionnés disponibles, page inconnue avec message explicite.",
+  "Mise à jour réelle du service worker : nouveau cache actif, ancien cache supprimé, JS et portfolio accessibles hors ligne."
+]
