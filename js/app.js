@@ -12,12 +12,27 @@ const applicationForm = document.querySelector("#applicationForm");
 const applicationStatus = document.querySelector("#applicationStatus");
 const WHATSAPP_NUMBER = "212662334479";
 let latestDiagnostic = null;
+const launchOfferActive = Date.now() < Date.parse("2026-09-10T00:00:00+01:00");
+const offerMessage = launchOfferActive
+  ? "J’ai pris connaissance de l’offre de lancement à 6 000 DH au lieu de 7 500 DH, valable pour une inscription confirmée avant le 10 septembre 2026, dans la limite des places disponibles."
+  : "Je souhaite connaître le tarif et les places disponibles ; l’offre de lancement avant le 10 septembre 2026 est terminée.";
+if (!launchOfferActive) {
+  const applicationPrice = document.querySelector(".application-price");
+  const offerCard = document.querySelector(".offer-pricing");
+  if (applicationPrice) applicationPrice.textContent = "L’offre de lancement avant le 10 septembre 2026 est terminée. Tarif et disponibilité à confirmer lors de l’échange.";
+  if (offerCard) offerCard.textContent = "Tarif actuel à confirmer";
+  const offerNote = document.querySelector(".offer-note");
+  if (offerNote) offerNote.textContent = "Les conditions d’inscription seront confirmées pendant l’échange.";
+  document.querySelectorAll(".offer-section p").forEach(el => {
+    if (el.textContent.includes("Offre valable")) el.textContent = "L’offre de lancement avant le 10 septembre 2026 est terminée. Contactez-nous pour connaître les conditions actuelles.";
+  });
+}
 
-function trackEvent(eventName, details = {}) {
-  const eventData = { event: eventName, page: "landing_rewire_90", ...details };
+function trackEvent(eventName) {
+  const eventData = { event: eventName, page: "landing_rewire_90" };
   window.dataLayer = window.dataLayer || [];
   if (typeof window.gtag === "function") {
-    window.gtag("event", eventName, { page_name: eventData.page, ...details });
+    window.gtag("event", eventName, { page_name: eventData.page });
   } else {
     window.dataLayer.push(eventData);
   }
@@ -69,7 +84,7 @@ function showDiagnosticResult(event) {
   diagnosticStatus.textContent = "Votre orientation est prête.";
   diagnosticResult.hidden = false;
   diagnosticResult.focus();
-  trackEvent("diagnostic_complete", { score, orientation: interpretation.title });
+  trackEvent("diagnostic_complete");
 }
 
 if (diagnosticForm) {
@@ -95,11 +110,11 @@ function submitApplication(event) {
     latestDiagnostic ? `Orientation du mini-diagnostic : ${latestDiagnostic.title} (${latestDiagnostic.score}/16)` : "Mini-diagnostic : non réalisé",
     "",
     "Je souhaite échanger pour vérifier si le programme correspond à ma situation.",
-    "J’ai pris connaissance de l’offre de lancement à 6 000 DH au lieu de 7 500 DH, valable pour une inscription confirmée avant le 10 septembre 2026, dans la limite des places disponibles."
+    offerMessage
   ].join("\n");
 
   applicationStatus.textContent = "WhatsApp va s’ouvrir. Confirmez l’envoi du message pour transmettre votre demande.";
-  trackEvent("application_whatsapp_open", { diagnostic_completed: Boolean(latestDiagnostic) });
+  trackEvent("application_whatsapp_open");
   window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
 }
 

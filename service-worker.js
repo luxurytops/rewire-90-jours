@@ -1,18 +1,23 @@
 "use strict";
 
 const CACHE_PREFIX = "rewire-90-";
-const STATIC_CACHE = `${CACHE_PREFIX}static-v15`;
+const STATIC_CACHE = `${CACHE_PREFIX}static-v16`;
 const DATA_CACHE = `${CACHE_PREFIX}data-v1`;
 
 const APP_SHELL = [
   "./",
   "./index.html",
-  "./css/styles.css",
-  "./js/app.js",
+  "./portfolio-v1/",
+  "./portfolio-v1/index.html",
+  "./portfolio/",
+  "./portfolio/index.html",
+  "./portfolio/style.css",
+  "./css/styles.css?v=16",
+  "./js/app.js?v=16",
   "./manifest.webmanifest",
   "./assets/images/hero-rewire.webp",
   "./assets/images/mohamed-boumrah-about.webp",
-  "./assets/images/affiche-masterclass-rewire.png",
+  "./assets/images/affiche-masterclass-rewire.webp",
   "./assets/images/flyer-rewire-2026.jpeg",
   "./assets/icons/icon-192.png",
   "./assets/icons/icon-512.png",
@@ -59,15 +64,19 @@ async function networkFirstData(request) {
 }
 
 async function networkFirstPage(request) {
+  const cache = await caches.open(STATIC_CACHE);
   try {
-    return await fetch(request);
+    const response = await fetch(request);
+    if (response.ok) await cache.put(request, response.clone());
+    return response;
   } catch (error) {
-    const cachedPage = await caches.match("./index.html");
+    const cachedPage = await cache.match(request);
     if (cachedPage) return cachedPage;
-    throw error;
+    return new Response('<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Page indisponible hors connexion</title><h1>Cette page n’est pas disponible hors connexion</h1><p>Reconnectez-vous pour ouvrir cette adresse.</p></html>', {
+      status: 503, headers: { 'Content-Type': 'text/html; charset=utf-8' }
+    });
   }
 }
-
 async function cacheFirst(request) {
   const cachedResponse = await caches.match(request);
   if (cachedResponse) return cachedResponse;

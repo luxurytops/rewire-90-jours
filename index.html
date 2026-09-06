@@ -17,7 +17,7 @@
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/favicon-32.png">
-  <link rel="stylesheet" href="./css/styles.css?v=14">
+  <link rel="stylesheet" href="./css/styles.css?v=16">
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -52,7 +52,7 @@
           <p>Découvrez l’intention de REWIRE, puis décidez librement si le niveau d’engagement demandé correspond à votre situation.</p>
         </div>
         <figure class="poster-frame">
-          <img src="./assets/images/affiche-masterclass-rewire.png" alt="Affiche de la masterclass gratuite REWIRE YOUR MIND : Qui décide vraiment à votre place ?" width="1024" height="1536">
+          <img src="./assets/images/affiche-masterclass-rewire.webp" alt="Affiche de la masterclass gratuite REWIRE YOUR MIND : Qui décide vraiment à votre place ?" width="1024" height="1536">
         </figure>
       </div>
     </section>
@@ -130,13 +130,13 @@
 
     <section class="section application-section" id="candidature">
       <div class="container application-grid">
-        <div><p class="eyebrow">Prochaine étape</p><h2>Demander à rejoindre REWIRE 90</h2><p class="section-lead">Cette demande est gratuite et sans engagement. Elle ouvre simplement une conversation pour comprendre votre objectif et vérifier si le programme correspond à votre situation.</p><p class="application-price"><strong>Offre de lancement : 6 000 DH</strong> au lieu de 7 500 DH, pour une inscription confirmée avant le 10 septembre 2026, dans la limite des cinq places disponibles.</p><ul class="next-steps"><li>Vous envoyez votre demande sur WhatsApp.</li><li>Nous échangeons sur votre objectif principal.</li><li>Vous recevez les informations utiles avant toute décision.</li></ul></div>
+        <div><p class="eyebrow">Prochaine étape</p><h2>Demander à rejoindre REWIRE 90</h2><p class="section-lead">Cette demande est gratuite et sans engagement. Elle ouvre simplement une conversation pour comprendre votre objectif et vérifier si le programme correspond à votre situation.</p><p class="application-price"><strong>Offre de lancement : 6 000 DH</strong> au lieu de 7 500 DH, pour une inscription confirmée avant le 10 septembre 2026, dans la limite de cinq places, disponibilité à confirmer lors de l’échange.</p><ul class="next-steps"><li>Vous envoyez votre demande sur WhatsApp.</li><li>Nous échangeons sur votre objectif principal.</li><li>Vous recevez les informations utiles avant toute décision.</li></ul></div>
         <form class="application-form" id="applicationForm">
           <fieldset><legend>Votre demande en moins d’une minute</legend><div class="lead-fields">
             <label>Prénom<input type="text" name="firstName" autocomplete="given-name" maxlength="60" required></label>
             <label>Numéro WhatsApp<input type="tel" name="phone" autocomplete="tel" inputmode="tel" maxlength="25" placeholder="Ex. +212 6 00 00 00 00" required></label>
             <label class="lead-change">Quelle difficulté souhaitez-vous dépasser ?<textarea name="changeGoal" rows="3" maxlength="350" placeholder="Décrivez-la en quelques mots" required></textarea></label>
-          </div><label class="consent"><input type="checkbox" name="consent" required> J’accepte d’ouvrir WhatsApp avec ces informations afin d’envoyer volontairement ma demande.</label><button class="button primary" type="submit">Envoyer ma demande sur WhatsApp</button><p class="form-status light" id="applicationStatus" aria-live="polite"></p><p class="privacy-note light">Aucune information n’est stockée sur cette page. WhatsApp ne s’ouvre qu’après votre validation.</p></fieldset>
+          </div><label class="consent"><input type="checkbox" name="consent" required> J’accepte de transmettre à WhatsApp mon prénom, mon numéro, ma difficulté et, si réalisé, le score et l’orientation du diagnostic pour préparer ma demande. Je confirmerai ensuite son envoi dans WhatsApp.</label><button class="button primary" type="submit">Envoyer ma demande sur WhatsApp</button><p class="form-status light" id="applicationStatus" aria-live="polite"></p><p class="privacy-note light">Les réponses et le résultat restent en mémoire dans cette page, sans enregistrement persistant ni envoi aux statistiques. Après votre accord, les informations du message sont transmises à WhatsApp pour le préremplir. Des événements de navigation génériques sont mesurés par Google Analytics.</p></fieldset>
         </form>
       </div>
     </section>
@@ -151,7 +151,7 @@
             <p class="offer-price">6 000 DH</p>
             <p class="offer-saving">20 % de réduction, soit 1 500 DH économisés</p>
           </div>
-          <p><strong>Offre valable pour toute inscription confirmée avant le 10 septembre 2026, dans la limite des places disponibles.</strong> Cinq places sont actuellement ouvertes au tarif de lancement.</p>
+          <p><strong>Offre valable pour toute inscription confirmée avant le 10 septembre 2026, dans la limite des places disponibles.</strong> L’offre est limitée à cinq places ; la disponibilité et le tarif applicable sont à confirmer lors de l’échange.</p>
           <p>Votre inscription est précédée d’un diagnostic et d’un entretien d’adéquation. REWIRE demande une participation active, du travail entre les séances et un engagement pendant toute la durée du parcours.</p>
           <a class="button primary offer-button" href="#candidature" data-track="offer_application">Demander à rejoindre REWIRE 90</a>
           <p class="offer-note">Le tarif promotionnel est garanti après confirmation de votre inscription et réception du paiement, dans la limite des places disponibles.</p>
@@ -164,7 +164,7 @@
     </section>
   </main>
 
-  <footer><div class="container"><strong>REWIRE YOUR MIND — 90 JOURS</strong><p>Mini-site V2 dynamique · PWA installable</p><p class="pwa-status" id="pwaStatus" role="status" aria-live="polite" hidden></p></div></footer>
-  <script src="./js/app.js?v=14"></script>
+  <footer><div class="container"><strong>REWIRE YOUR MIND — 90 JOURS</strong><p>Mini-site V2 dynamique · PWA installable</p><p class="pwa-status" id="pwaStatus" role="status" aria-live="polite" hidden></p></div><p><a href="./portfolio-v1/">Consulter le portfolio et le statut des preuves</a></p></footer>
+  <script src="./js/app.js?v=16"></script>
 </body>
 </html>
